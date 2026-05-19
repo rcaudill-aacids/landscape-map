@@ -37,7 +37,7 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="data/AirportWestcopy_1.js"></script>
+        <script src="data/AirportWest_1.js"></script>
         <script src="data/AirportSouth_2.js"></script>
         <script src="data/WorkAreas_3.js"></script>
         <script src="data/WorkZones_4.js"></script>
@@ -144,7 +144,7 @@
         });
         layer_EsriGraylight_0;
         map.addLayer(layer_EsriGraylight_0);
-        function pop_AirportWestcopy_1(feature, layer) {
+        function pop_AirportWest_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -172,30 +172,33 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_AirportWestcopy_1_0() {
+        function style_AirportWest_1_0() {
             return {
-                pane: 'pane_AirportWestcopy_1',
-                stroke: false, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,116,140,0.15)',
+                pane: 'pane_AirportWest_1',
+                opacity: 1,
+                color: 'rgba(0,116,140,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fillOpacity: 0,
                 interactive: false,
             }
         }
-        map.createPane('pane_AirportWestcopy_1');
-        map.getPane('pane_AirportWestcopy_1').style.zIndex = 401;
-        map.getPane('pane_AirportWestcopy_1').style['mix-blend-mode'] = 'normal';
-        var layer_AirportWestcopy_1 = new L.geoJson(json_AirportWestcopy_1, {
+        map.createPane('pane_AirportWest_1');
+        map.getPane('pane_AirportWest_1').style.zIndex = 401;
+        map.getPane('pane_AirportWest_1').style['mix-blend-mode'] = 'normal';
+        var layer_AirportWest_1 = new L.geoJson(json_AirportWest_1, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_AirportWestcopy_1',
-            layerName: 'layer_AirportWestcopy_1',
-            pane: 'pane_AirportWestcopy_1',
-            onEachFeature: pop_AirportWestcopy_1,
-            style: style_AirportWestcopy_1_0,
+            dataVar: 'json_AirportWest_1',
+            layerName: 'layer_AirportWest_1',
+            pane: 'pane_AirportWest_1',
+            onEachFeature: pop_AirportWest_1,
+            style: style_AirportWest_1_0,
         });
-        bounds_group.addLayer(layer_AirportWestcopy_1);
-        map.addLayer(layer_AirportWestcopy_1);
+        bounds_group.addLayer(layer_AirportWest_1);
+        map.addLayer(layer_AirportWest_1);
         function pop_AirportSouth_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -226,10 +229,10 @@
                 pane: 'pane_AirportSouth_2',
                 opacity: 1,
                 color: 'rgba(111,52,182,1.0)',
-                dashArray: '8.0,4.0',
+                dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 4.0, 
+                weight: 3.0, 
                 fillOpacity: 0,
                 interactive: false,
             }
@@ -462,11 +465,10 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var overlaysTree = [
-			{label: '<strong>Legend</strong>'},
             {label: 'Work Zones<br /><table><tr><td style="text-align: center;"><img src="legend/WorkZones_4_Monday0.png" /></td><td>Monday</td></tr><tr><td style="text-align: center;"><img src="legend/WorkZones_4_Tuesday1.png" /></td><td>Tuesday</td></tr><tr><td style="text-align: center;"><img src="legend/WorkZones_4_Wednesday2.png" /></td><td>Wednesday</td></tr><tr><td style="text-align: center;"><img src="legend/WorkZones_4_Thursday3.png" /></td><td>Thursday</td></tr></table>', layer: layer_WorkZones_4},
             {label: '<img src="legend/WorkAreas_3.png" /> Work Areas', layer: layer_WorkAreas_3},
             {label: '<img src="legend/AirportSouth_2.png" /> Airport South', layer: layer_AirportSouth_2},
-            {label: '<img src="legend/AirportWestcopy_1.png" /> Airport West copy', layer: layer_AirportWestcopy_1},
+            {label: '<img src="legend/AirportWest_1.png" /> Airport West', layer: layer_AirportWest_1},
             {label: "Esri Gray (light)", layer: layer_EsriGraylight_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
@@ -535,7 +537,7 @@
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['day'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['day']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_WorkZones_4'});
+            layer.bindTooltip((layer.feature.properties['day'] !== null?String('<div style="color: #323232; font-size: 10pt; font-weight: bold; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['day']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_WorkZones_4'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
