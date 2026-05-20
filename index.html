@@ -464,13 +464,15 @@
         .className += ' fa fa-search';
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
-        var overlaysTree = [
+        var overlaysTree = {
+			label: 'Legend',
+			children: [
 			{label: 'Legend'},
             {label: 'Work Zones<br /><table><tr><td style="text-align: center;"><img src="legend/WorkZones_4_Monday0.png" /></td><td>Monday</td></tr><tr><td style="text-align: center;"><img src="legend/WorkZones_4_Tuesday1.png" /></td><td>Tuesday</td></tr><tr><td style="text-align: center;"><img src="legend/WorkZones_4_Wednesday2.png" /></td><td>Wednesday</td></tr><tr><td style="text-align: center;"><img src="legend/WorkZones_4_Thursday3.png" /></td><td>Thursday</td></tr></table>', layer: layer_WorkZones_4},
             {label: '<img src="legend/WorkAreas_3.png" /> Work Areas', layer: layer_WorkAreas_3},
             {label: '<img src="legend/AirportSouth_2.png" /> Airport South', layer: layer_AirportSouth_2},
             {label: '<img src="legend/AirportWest_1.png" /> Airport West', layer: layer_AirportWest_1},
-            {label: "Esri Gray (light)", layer: layer_EsriGraylight_0},]
+            {label: "Esri Gray (light)", layer: layer_EsriGraylight_0},]}
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
             //selectorBack: false,
